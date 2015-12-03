@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -8,14 +9,14 @@ int main() {
     for (int i = 1; i <= t; ++i) {
         int n;
         cin >> n;
-        int res = n;
-        while (res >= 0 and res % 7 != 0) {
-            res -= 4;
+        double mink = ceil(0.25 * n);
+        double maxk = floor(2.0 * n / 7.0);
+        if (maxk >= mink) {
+            int k = (int) maxk;
+            cout << 7 * (4 * k - n) << endl;
+        } else {
+            cout << -1 << endl;
         }
-
-        if (res >=0) 	cout << res;
-        else 			cout << -1;
-        cout << endl;
     }
 
     return 0;
